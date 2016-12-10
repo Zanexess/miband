@@ -7,8 +7,8 @@
         <uses-permission android:name="android.permission.INTERNET" />
     -->
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -57,9 +57,9 @@
             android:label="@string/preferences_miband_settings"
             android:parentActivityName=".activities.SettingsActivity" />
         <activity
-            android:launchMode="singleTop"
             android:name=".activities.appmanager.AppManagerActivity"
             android:label="@string/title_activity_appmanager"
+            android:launchMode="singleTop"
             android:parentActivityName=".activities.ControlCenter" />
         <activity
             android:name=".activities.AppBlacklistActivity"
@@ -185,7 +185,7 @@
 
                 <data android:mimeType="application/octet-stream" />
             </intent-filter>
-            <!-- to receive firmwares from the download content provider if recognized as zip-->
+            <!-- to receive firmwares from the download content provider if recognized as zip -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -231,7 +231,7 @@
         <!--
             forcing the DebugActivity to portrait mode avoids crashes with the progress
             dialog when changing orientation
-         -->
+        -->
         <activity
             android:name=".activities.DebugActivity"
             android:label="@string/title_activity_debug"
@@ -265,7 +265,9 @@
         <activity
             android:name=".activities.charts.ChartsActivity"
             android:label="@string/title_activity_charts"
-            android:parentActivityName=".activities.ControlCenter" />
+            android:parentActivityName=".activities.ControlCenter"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
         <activity
             android:name=".activities.ConfigureAlarms"
             android:label="@string/title_activity_set_alarm"
@@ -277,7 +279,9 @@
         <activity
             android:name=".activities.VibrationActivity"
             android:label="@string/title_activity_vibration"
-            android:parentActivityName=".activities.ControlCenter" />
+            android:parentActivityName=".activities.ControlCenter"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
 
         <provider
             android:name=".contentprovider.PebbleContentProvider"
@@ -296,23 +300,26 @@
         </receiver>
 
         <activity
-            android:launchMode="singleTask"
+            android:name=".activities.ExternalPebbleJSActivity"
             android:allowTaskReparenting="true"
             android:clearTaskOnLaunch="true"
-            android:name=".activities.ExternalPebbleJSActivity"
             android:label="@string/app_configure"
+            android:launchMode="singleTask"
             android:parentActivityName=".activities.appmanager.AppManagerActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenter" />
+
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="gadgetbridge" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".activities.UserSettingsActivity"></activity>
     </application>
 
 </manifest>

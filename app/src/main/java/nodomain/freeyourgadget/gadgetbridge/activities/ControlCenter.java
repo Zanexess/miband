@@ -326,6 +326,10 @@ public class ControlCenter extends GBActivity {
             case R.id.action_quit:
                 GBApplication.quit();
                 return true;
+            case R.id.action_user_settings:
+                Intent usIntent = new Intent(this, UserSettingsActivity.class);
+                startActivity(usIntent);
+                return true;
         }
 
         return super.onOptionsItemSelected(item);

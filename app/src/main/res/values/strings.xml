@@ -282,7 +282,7 @@
     <string name="fwinstaller_firmware_not_compatible_to_device">This firmware is not compatible with the device</string>
     <string name="miband_prefs_reserve_alarm_calendar">Alarms to reserve for upcoming events</string>
     <string name="miband_prefs_hr_sleep_detection">Use Heartrate Sensor to improve sleep detection</string>
-	<string name="miband_prefs_device_time_offset_hours">Device time offset in hours (for detecting sleep of shift workers)</string>
+    <string name="miband_prefs_device_time_offset_hours">Device time offset in hours (for detecting sleep of shift workers)</string>
     <string name="miband2_prefs_dateformat">Mi2: Date Format</string>
     <string name="dateformat_time">Time</string>
     <string name="dateformat_date_time"><![CDATA[Time & Date]]></string>
@@ -361,4 +361,7 @@
     <!-- Strings related to Pebble Pairing Activity-->
     <string name="title_activity_pebble_pairing">Pebble Pairing</string>
     <string name="pebble_pairing_hint">A pairing dialog is expected to pop up on your Android device. If that does not happen, look in the notification drawer and accept the pairing request. After that accept the pairing request on your Pebble</string>
+    <string name="zero">0</string>
+    <string name="user_settings">User settings</string>
+    <string name="save_ok">Save</string>
 </resources>

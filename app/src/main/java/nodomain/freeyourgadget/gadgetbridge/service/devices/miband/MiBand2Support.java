@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
@@ -938,11 +939,15 @@ public class MiBand2Support extends AbstractBTLEDeviceSupport {
     private JSONObject getRateJson(int bitrate){
         JSONObject object = null;
         //{'created_at': '26/12/16', 'bitrate': '4566', 'band': 'xyz'}
+
+        String id = GBApplication.getSharedPrefs().getString("api_user_id", "0");
+
         try {
             object = new JSONObject();
             object.put("created_at", DateFormatUtils.format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSS"));
             object.put("bitrate", bitrate);
             object.put("band", getDevice().getAddress());
+            object.put("user_id", id);
         } catch (JSONException e) {
             e.printStackTrace();
         }

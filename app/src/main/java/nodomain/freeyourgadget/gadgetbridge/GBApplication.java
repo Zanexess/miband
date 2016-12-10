@@ -80,6 +80,7 @@ public class GBApplication extends Application {
 
     private DeviceManager deviceManager;
 
+
     public static void quit() {
         GB.log("Quitting Gadgetbridge...", GB.INFO, null);
         Intent quitIntent = new Intent(GBApplication.ACTION_QUIT);
@@ -90,6 +91,10 @@ public class GBApplication extends Application {
     public GBApplication() {
         context = this;
         // don't do anything here, add it to onCreate instead
+    }
+
+    public static SharedPreferences getSharedPrefs() {
+        return sharedPrefs;
     }
 
     protected DeviceService createDeviceService() {

@@ -2,6 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenter">
+    <item android:id="@+id/action_user_settings" android:title="@string/user_settings"
+        android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/action_debug" android:title="@string/action_debug"
@@ -13,4 +15,5 @@
         app:showAsAction="never" />
     <item android:id="@+id/action_quit" android:title="@string/action_quit"
         android:orderInCategory="100" app:showAsAction="never" />
+
 </menu>
