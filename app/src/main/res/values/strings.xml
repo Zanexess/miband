@@ -364,4 +364,5 @@
     <string name="zero">0</string>
     <string name="user_settings">User settings</string>
     <string name="save_ok">Save</string>
+    <string name="user0">User0</string>
 </resources>

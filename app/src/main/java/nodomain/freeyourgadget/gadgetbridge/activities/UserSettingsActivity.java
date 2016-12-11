@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -14,15 +15,18 @@ import nodomain.freeyourgadget.gadgetbridge.R;
 public class UserSettingsActivity extends AppCompatActivity {
 
     @BindView(R.id.userId)
-    EditText edUserId;
+    EditText userId;
+
+    @BindView(R.id.username)
+    EditText username;
 
     @OnClick(R.id.ok)
     void submit() {
-        GBApplication.getSharedPrefs().edit().putString("api_user_id", edUserId.getText().toString()).apply();
+        GBApplication.getSharedPrefs().edit().putString("api_user_id", userId.getText().toString()).apply();
+        GBApplication.getSharedPrefs().edit().putString("api_user_name", username.getText().toString()).apply();
 
-        String id = GBApplication.getSharedPrefs().getString("api_user_id", "0");
+        Toast.makeText(getApplicationContext(), "Updated user", Toast.LENGTH_SHORT).show();
 
-        Log.d("TAG", id);
         finish();
     }
 
@@ -32,5 +36,10 @@ public class UserSettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        String id = GBApplication.getSharedPrefs().getString("api_user_id", "0");
+        userId.setText(id);
+        String name = GBApplication.getSharedPrefs().getString("api_user_name", "0");
+        username.setText(name);
     }
 }

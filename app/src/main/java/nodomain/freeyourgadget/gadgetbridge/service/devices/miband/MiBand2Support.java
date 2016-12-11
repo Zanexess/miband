@@ -938,9 +938,9 @@ public class MiBand2Support extends AbstractBTLEDeviceSupport {
 
     private JSONObject getRateJson(int bitrate){
         JSONObject object = null;
-        //{'created_at': '26/12/16', 'bitrate': '4566', 'band': 'xyz'}
 
         String id = GBApplication.getSharedPrefs().getString("api_user_id", "0");
+        String name = GBApplication.getSharedPrefs().getString("api_user_name", "0");
 
         try {
             object = new JSONObject();
@@ -948,6 +948,7 @@ public class MiBand2Support extends AbstractBTLEDeviceSupport {
             object.put("bitrate", bitrate);
             object.put("band", getDevice().getAddress());
             object.put("user_id", id);
+            object.put("username", name);
         } catch (JSONException e) {
             e.printStackTrace();
         }
