@@ -13,6 +13,6 @@ import retrofit2.http.POST;
 
 public interface RateService {
 
-    @POST("/pulses/")
+    @POST("/pulses")
     Call<ResponseBody> rate(@Body JSONObject json);
 }

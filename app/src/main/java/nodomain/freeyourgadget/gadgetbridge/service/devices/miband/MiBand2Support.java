@@ -6,7 +6,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
@@ -924,10 +923,11 @@ public class MiBand2Support extends AbstractBTLEDeviceSupport {
 
     private RateService rateService;
 
+
     private RateService getRateService(){
         if(rateService == null){
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://api.github.com")
+                    .baseUrl("http://78.155.207.160")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
@@ -983,6 +983,7 @@ public class MiBand2Support extends AbstractBTLEDeviceSupport {
                 });
 
             }
+
             RealtimeSamplesSupport realtimeSamplesSupport = getRealtimeSamplesSupport();
             realtimeSamplesSupport.setHeartrateBpm(hrValue);
             if (!realtimeSamplesSupport.isRunning()) {
